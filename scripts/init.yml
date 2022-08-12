@@ -1,7 +1,0 @@
-#cloud-config
-runcmd:
-  - apt update -y && apt upgrade -y
-  - curl -fsSL https://get.docker.com | bash
-  - curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
-  - curl -sfL https://get.k3s.io | sh -
-  - mkdir ~/.kube && mv /etc/rancher/k3s/k3s.yaml ~/.kube/config
