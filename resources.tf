@@ -4,10 +4,10 @@ resource "hcloud_ssh_key" "tf-generated-ssh" {
 }
 
 resource "hcloud_server" "k8s-master" {
-  name        = "k8s-master"
-  image       = "ubuntu-20.04"
-  server_type = "cx21"
-  location    = "nbg1"
+  name        = var.server_name
+  image       = var.server_image
+  server_type = var.server_type
+  location    = var.server_location
   ssh_keys    = tolist([hcloud_ssh_key.tf-generated-ssh.name])
 
   user_data   = "${file("scripts/init.yml")}"
